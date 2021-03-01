@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.gridlayout.widget.GridLayout;
 
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -54,11 +55,34 @@ public class MainActivity extends AppCompatActivity {
             for (int[] winningPosition : winningPositions) {
                 if (gameState[winningPosition[0]] == gameState[winningPosition[1]] && gameState[winningPosition[1]] == gameState[winningPosition[2]] && gameState[winningPosition[0]] != 2) {
                     gameActive = false;
+
                     String winner = "";
+
                     if (activePlayer == 1) {
                         winner = "Kamui Shuriken! Uchiha";
+
+                        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.sharingan);
+
+                        mediaPlayer.start();
+
+                        ImageView winnerImageView = (ImageView) findViewById(R.id.winnerImageView);
+
+                        winnerImageView.setImageResource(R.drawable.madara);
+
+                        winnerImageView.animate().alpha(1).setDuration(4000);
                     } else {
                         winner = "Moktun no Jutsu! Senju";
+
+                        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.woodstyle);
+
+                        mediaPlayer.start();
+
+                        ImageView winnerImageView = (ImageView) findViewById(R.id.winnerImageView);
+
+                        winnerImageView.setImageResource(R.drawable.hashirama);
+
+                        winnerImageView.animate().alpha(1).setDuration(4000);
+
                     }
 
                     Toast.makeText(this, winner + " clan has won!", Toast.LENGTH_LONG).show();
@@ -78,14 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-
-          /*  if(isDraw) {
-                Toast.makeText(this, "Neither clan is superior. It's a draw!", Toast.LENGTH_SHORT).show();
-
-                Button restartButton = (Button) findViewById(R.id.restartGameButton);
-
-                restartButton.setVisibility(View.VISIBLE);
-            }*/
         }
 
     }
@@ -94,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
         Button restartBtn = (Button) findViewById(R.id.restartGameButton);
 
         restartBtn.setVisibility(View.INVISIBLE);
+
+        ImageView winnerImageView = (ImageView) findViewById(R.id.winnerImageView);
+
+        winnerImageView.animate().alpha(0).setDuration(500);
 
         GridLayout gridLayout = (GridLayout) findViewById(R.id.gridLayout);
 

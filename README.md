@@ -26,6 +26,6 @@ Here's a link if you get lost 🔎 [A stackoverflow I'm here to help you find an
 Basic - Sorry. Not in the mood for intensive ui design.
 
 
-![Image of team 1 win](app/src/main/res/drawable/senju-won.png)
-![Image of team 2 win](app/src/main/res/drawable/uchiha-won.png)
+![Image of team 1 win](app/src/main/res/drawable/senju_won.png)
+![Image of team 2 win](app/src/main/res/drawable/uchiha_won.png)
 ![Image of draw](app/src/main/res/drawable/draw.png)
